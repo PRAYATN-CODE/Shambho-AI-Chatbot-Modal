@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "npx http-server dist"
   },
   "dependencies": {
     "@babel/standalone": "^7.26.7",
