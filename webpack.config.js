@@ -2,7 +2,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/app.jsx',  // Entry point for the app
+    entry: './src/App.jsx',  // Entry point for the app
     output: {
         filename: 'modal.bundle.js', // Output file name
         path: path.resolve(__dirname, 'dist'), // Output directory (dist)
