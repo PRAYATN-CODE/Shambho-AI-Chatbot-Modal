@@ -1,32 +1,22 @@
-const path = require("path");
+// webpack.config.mjs
+import path from 'path';
 
-module.exports = {
-    entry: "./index.js", // Entry point (Main React component)
+export default {
+    entry: './src/index.js',  // entry point
     output: {
-        filename: "modal.bundle.js", // Output file name
-        path: path.resolve(__dirname, "dist"), // Output directory
-        publicPath: "/dist/", // Public URL path
+        filename: 'bundle.js',
+        path: path.resolve('dist'),
     },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/, // Process JS and JSX files
+                test: /\.js$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-react", "@babel/preset-env"], // Compile React and modern JS
-                    },
-                },
+                use: 'babel-loader',
             },
         ],
     },
-    devServer: {
-        static: path.join(__dirname, "dist"),
-        compress: true,
-        port: 3000, // Runs a local dev server on port 3000
-    },
     resolve: {
-        extensions: [".js", ".jsx"], // Resolve JS and JSX imports
+        extensions: ['.js', '.jsx'],
     },
 };
