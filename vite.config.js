@@ -1,17 +1,23 @@
+// vite.config.js
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+
+// Vite configuration for building the modal as a library
 export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: './src/index.jsx', // Change this to 'index.jsx' as entry point
-      name: 'ModalApp',
-      fileName: (format) => `modal.bundle.js`,
+      entry: './src/app.jsx', // Main entry file
+      name: 'ModalApp', // Global name for the library
+      fileName: (format) => `modal.bundle.js`, // Output file name
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      // Externalize React and ReactDOM to avoid bundling them
+      external: ['react', 'react-dom'], // Mark React and ReactDOM as external
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
+          'react-dom': 'ReactDOM', // Make React and ReactDOM global
         },
       },
     },
